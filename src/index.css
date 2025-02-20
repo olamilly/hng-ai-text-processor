@@ -1,0 +1,90 @@
+@import "tailwindcss";
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	place-items: center;
+	flex-direction: column;
+	min-width: 320px;
+	min-height: 100vh;
+}
+
+@font-face {
+	font-family: aeonik-bold;
+	src: url("/AeonikTRIAL-Bold.otf");
+}
+@font-face {
+	font-family: aeonik-regular;
+	src: url("/AeonikTRIAL-Regular.otf");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: aeonik-bold, sans-serif;
+}
+* {
+	font-family: aeonik-regular, sans-serif;
+}
+header > h1 {
+	font-weight: 700;
+	background: linear-gradient(to right, azure, #00bdff, #0037f8);
+	-webkit-background-clip: text;
+	background-clip: "text";
+	color: transparent;
+}
+
+button {
+	border: 1px solid transparent;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	cursor: pointer;
+}
+button:disabled,
+select:disabled,
+textarea:disabled {
+	cursor: not-allowed;
+}
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	/* padding: 2rem; */
+	width: 100%;
+	text-align: center;
+}
+footer {
+	padding: 0.7rem;
+	width: 100%;
+	text-align: center;
+}
+p {
+	overflow-wrap: break-word;
+}
+@media (prefers-color-scheme: light) {
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+}
+a {
+	text-decoration: underline;
+	font-weight: 700;
+}
