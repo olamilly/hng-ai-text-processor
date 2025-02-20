@@ -236,7 +236,7 @@ export default function App() {
 		<div className="flex flex-col h-screen bg-gray-100">
 			<header className="p-4 bg-white w-full text-center border-b border-gray-200">
 				<h1 className="text-[3.2rem]">Polyglot.ai</h1>
-				<p className="text-blue-900">
+				<p className="text-blue-800">
 					smart text summarization and translation in any language
 				</p>
 			</header>
