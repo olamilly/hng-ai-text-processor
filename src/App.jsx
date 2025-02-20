@@ -257,6 +257,7 @@ export default function App() {
 										onClick={(e) => handleSummarize(message.id, e)}
 										className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-blue-500 disabled:opacity-50"
 										disabled={isProcessing || isSummarizing}
+										tabIndex="0"
 									>
 										Summarize
 									</button>
@@ -270,14 +271,15 @@ export default function App() {
 											}}
 											size={17}
 											className="absolute right-3 top-2 opacity-50 cursor-pointer hover:opacity-100"
+											tabIndex="0"
+											aria-label="Copy summary"
 										/>
 									) : (
 										<Check
-											onClick={() => {
-												copyTranslation(message.id);
-											}}
 											size={17}
 											className="absolute right-3 text-green-500 top-2 cursor-pointer"
+											tabIndex="0"
+											aria-label="Summary copied"
 										/>
 									)}
 
@@ -295,6 +297,8 @@ export default function App() {
 								<div className="space-x-2 flex items-center justify-center max-sm:w-full">
 									<span>Translate to: </span>
 									<select
+										tabIndex="0"
+										aria-label="Select target language"
 										value={targetLanguage}
 										onChange={(e) => setTargetLanguage(e.target.value)}
 										disabled={isProcessing || message.isTranslating}
@@ -318,6 +322,7 @@ export default function App() {
 											targetLanguage.length === 0 ||
 											message.isTranslating
 										}
+										tabIndex="0"
 									>
 										{message.isTranslating ? (
 											<Loader />
@@ -341,12 +346,13 @@ export default function App() {
 													}}
 													size={17}
 													className="absolute right-3 top-2 opacity-50 cursor-pointer hover:opacity-100"
+													tabIndex="0"
+													aria-label="Copy translation"
 												/>
 											) : (
 												<Check
-													onClick={() => {
-														copyTranslation(message.id);
-													}}
+													tabIndex="0"
+													aria-label="Translation copied"
 													size={17}
 													className="absolute right-3 text-green-500 top-2 cursor-pointer"
 												/>
@@ -386,10 +392,12 @@ export default function App() {
 				>
 					<span className="block sm:inline">{error}</span>
 					<X
-						className="absolute right-2 top-3 cursor-pointer"
+						className="absolute right-2 top-3 opacity-70 cursor-pointer hover:opacity-100"
 						onClick={() => {
 							setError("");
 						}}
+						tabIndex="0"
+						aria-label="Close error message"
 					/>
 				</div>
 			)}
@@ -410,6 +418,7 @@ export default function App() {
 							placeholder="Type your text here..."
 							rows={3}
 							disabled={isProcessing}
+							tabIndex="0"
 						/>
 						{input.trim().length > 0 && (
 							<p className="absolute right-2 px-2 top-0 opacity-50 bg-blue-300 rounded-md">
@@ -422,12 +431,13 @@ export default function App() {
 						aria-label="Submit"
 						type="submit"
 						className="px-4 py-2 disabled:bg-blue-500 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
-						// Number to check if its just numbers/digits
+						// Number to check if textbox contains just numbers/digits
 						disabled={
 							isProcessing ||
 							textBoxRef.current?.value.trim().length <= 0 ||
 							Number(textBoxRef.current?.value)
 						}
+						tabIndex="0"
 					>
 						<Send />
 					</button>
